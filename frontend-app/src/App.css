@@ -1,0 +1,37 @@
+/* App.css */
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: left; /* Change to left-align */
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.label {
+  text-align: left; /* Change to left-align */
+  padding-right: 10px;
+}
+
+.input {
+  padding: 8px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #4caf50;
+}
