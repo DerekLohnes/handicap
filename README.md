@@ -1,5 +1,7 @@
 git add [FILES]
+
 git commit -m ["MESSAGE"]
+
 git push -u origin main  
 
 
