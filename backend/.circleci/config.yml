@@ -1,0 +1,35 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.x  # Use the Python version you need
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Set up Python environment
+      - run:
+          name: Set up Python
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+
+      # Install dependencies
+      - run:
+          name: Install dependencies
+          command: |
+            pip install -r requirements.txt  # Adjust based on your project structure
+
+      # Run tests
+      - run:
+          name: Run tests
+          command: |
+            python test_handicap.py
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
