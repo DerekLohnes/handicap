@@ -5,27 +5,27 @@ orbs:
   python: circleci/python@2
 jobs:
 steps:
-  - checkout
-
-  # Set up Python environment
-  - run:
-      name: Set up Python
-      command: |
-        python -m venv venv
-        . venv/bin/activate
-
-  # Install dependencies
-  - run:
-      name: Install dependencies
-      command: |
-        pip install -r requirements.txt
-        # ... (other setup commands)
-
-  # Run tests
-  - run:
-      name: Run tests
-      command: |
-        python test-handicap.py
+    - checkout
+  
+    # Set up Python environment
+    - run:
+        name: Set up Python
+        command: |
+          python -m venv venv
+          . venv/bin/activate
+  
+    # Install dependencies
+    - run:
+        name: Install dependencies
+        command: |
+          pip install -r requirements.txt
+          # ... (other setup commands)
+  
+    # Run tests
+    - run:
+        name: Run tests
+        command: |
+          python test-handicap.py
 workflows:
   build-and-test:
     jobs:
