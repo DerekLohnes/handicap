@@ -2,8 +2,7 @@
 # Stacks detected: deps:node:frontend-app,deps:python:backend
 version: 2.1
 orbs:
-  python: circleci/python@2
-jobs:
+  python: circleci/python@
 steps:
     - checkout
   
@@ -26,10 +25,3 @@ steps:
         name: Run tests
         command: |
           python test-handicap.py
-workflows:
-  build-and-test:
-    jobs:
-      - test-python
-    # - deploy:
-    #     requires:
-    #       - build-node
