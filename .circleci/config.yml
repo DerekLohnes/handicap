@@ -4,31 +4,28 @@ version: 2.1
 orbs:
   python: circleci/python@2
 jobs:
-  test-python:
-     # Install dependencies
-      - run:
-          name: Install dependencies
-          command: |
-             pip install --no-cache-dir -r requirements.txt
-      - run:
-          name: Run tests
-          command: python test_handicap.py
-    docker:
-      - image: cimg/python:3.8-node
-    working_directory: ~/project/backend
-    steps:
-      - checkout:
-          path: ~/project
-      - python/install-packages
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+steps:
+  - checkout
+
+  # Set up Python environment
+  - run:
+      name: Set up Python
+      command: |
+        python -m venv venv
+        . venv/bin/activate
+
+  # Install dependencies
+  - run:
+      name: Install dependencies
+      command: |
+        pip install -r requirements.txt
+        # ... (other setup commands)
+
+  # Run tests
+  - run:
+      name: Run tests
+      command: |
+        python test-handicap.py
 workflows:
   build-and-test:
     jobs:
