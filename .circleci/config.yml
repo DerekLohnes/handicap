@@ -1,8 +1,6 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:node:frontend-app,deps:python:backend
 version: 2.1
-orbs:
-  python: circleci/python@
 steps:
     - checkout
   
