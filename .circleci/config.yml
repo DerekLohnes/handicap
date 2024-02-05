@@ -14,11 +14,6 @@ jobs:
           path: ~/project
       - node/install-packages:
           pkg-manager: npm
-       # Install dependencies
-      - run:
-          name: Install dependencies
-          command: |
-             pip install --no-cache-dir -r requirements.txt
       - run:
           name: Print node install help instructions
           command: |-
@@ -72,7 +67,14 @@ jobs:
           path: ~/artifacts
           destination: node-build
   test-python:
-    # Install dependencies and run tests
+     # Install dependencies
+      - run:
+          name: Install dependencies
+          command: |
+             pip install --no-cache-dir -r requirements.txt
+      - run:
+          name: Run tests
+          command: python test_handicap.py
     docker:
       - image: cimg/python:3.8-node
     working_directory: ~/project/backend
@@ -80,11 +82,6 @@ jobs:
       - checkout:
           path: ~/project
       - python/install-packages
-      - run:
-          name: Run tests
-          command: python test_handicap.py
-      - store_test_results:
-          path: junit.xml
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
