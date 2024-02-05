@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            python ./backend/test-handicap.yml
+            python ./backend/test-handicap.py
 
 workflows:
   version: 2
